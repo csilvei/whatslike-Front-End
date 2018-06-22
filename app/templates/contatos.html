@@ -1,0 +1,33 @@
+<div ng-controller=contatosController>
+    <h3 style="margin-left: 42%;color: white">Contatos de {{nome}}</h3>
+    <div style="margin-left: 38%"  class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" ng-click="redirect('add')" class="btn btn-secondary">Adicionar</button>
+        <button type="button" ng-click="redirect('voltar')" class="btn btn-secondary">Voltar</button>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+            <th style="color: white" scope="col">#</th>
+            <th style="color: white" scope="col">Nome</th>
+            <th style="color: white" scope="col">IP</th>
+            <th style="color: white" scope="col">Status</th>
+            <th style="color: white" scope="col">Opções</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="contato in contatos">
+                <th style="color: white" scope="row">{{contato.id}}</th>
+                <td style="color: white">{{contato.nome}}</td>
+                <td style="color: white">{{contato.ip}}</td>
+                <td style="color: white">{{contato.status ? "Online" : "Offline"}}</td>
+                <td style="color: white">
+                    <div  class="btn-group" role="group" aria-label="Basic example">
+                        <button type="button" ng-click="submit('msgview',contato.id,contato.nome)" class="btn btn-secondary">Ver Mensagens</button>
+                        <button type="button" ng-click="submit('msgsend',contato.id,contato.nome,contato-id)" class="btn btn-secondary">Enviar Mensagem</button>
+                        <textarea id="{{contato-id}}" maxlength="32" placeholder="Digite o texto e clique em enviar Mensagem!"></textarea>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,14 @@
+<div ng-controller=contatosController>
+        <h3 style="margin-left: 40%; margin-top: 5%;color: white">Cadastro de Contatos</h3>
+        <form style="margin-left: 40%; margin-top: 5%">
+            <div class="form-group">
+                <label for="exampleInputEmail1" style="color: white">Nome</label>
+                <input type="text" class="form-control" style="width:30%!important" id="nome" required aria-describedby="nomeHelp" placeholder="digite um nome" maxlength="8">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1" style="color: white">IP</label>
+                <input type="text" class="form-control" id="ip" style="width:30%!important" onkeydown="javascript: fMasc( this, mIP );" required placeholder="digite o ip" maxlength="15">
+            </div>
+            <button  class="btn btn-primary" ng-click="add()" >Salvar</button>
+        </form>
+    </div>

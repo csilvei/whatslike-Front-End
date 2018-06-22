@@ -1,0 +1,22 @@
+<div ng-controller=gruposController>
+    <h3 style="margin-left: 40%; margin-top: 5%;color: white">Cadastro de Grupo</h3>
+    <form style="margin-left: 40%; margin-top: 5%">
+        <div class="form-group">
+                <label for="exampleInputEmail1" style="color: white">{{contato.id}}</label>
+            <label for="exampleInputEmail1" style="color: white">Nome</label>
+            <input type="text" class="form-control" style="width:30%!important" id="nome" required aria-describedby="nomeHelp" placeholder="digite um nome" maxlength="8">
+        </div>
+        <div ng-repeat="contato in contatos">
+            <div class="input-group mb-3">
+                <input type="text"  style="width: 100px;color: grey; background-color: white" readonly  value="{{contato.nome}}">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary"  style="background-color: white;color: grey" ng-click="addLista(contato.id,contato.nome)" type="button">Adicionar</button>
+                  <button class="btn btn-outline-secondary"  style="background-color: white;color: grey" ng-click="removeLista(contato.id,contato.nome)" type="button">Remover</button>
+                </div>
+              </div>
+               
+        </div>
+        <div style="margin-top: 5%;color: white">Selecionados : {{listaNomes}}</div>
+        <button  class="btn btn-primary" ng-click="add()" >Salvar</button>
+    </form>
+</div>

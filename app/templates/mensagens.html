@@ -1,0 +1,22 @@
+<div ng-controller=contatosController>
+        <h3 style="margin-left: 42%;color: white">Mensagens de {{nome}} e {{nomeContato}}</h3>
+        <div style="margin-left: 38%"  class="btn-group" role="group" aria-label="Basic example">
+            <button type="button" ng-click="redirect('voltarMsg')" class="btn btn-secondary">Voltar</button>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                <th style="color: white" scope="col">Nome</th>
+                <th style="color: white" scope="col">Mensagem</th>
+                <th style="color: white" scope="col">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="mensagem in mensagens">
+                    <th style="color: white" scope="row">{{mensagem.remetenteNome}}</th>
+                    <td style="color: white">{{mensagem.text}}</td>
+                    <td style="color: white">{{mensagem.lida ? "Lida" : "Entregue"}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
