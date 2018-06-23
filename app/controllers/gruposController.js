@@ -39,12 +39,12 @@ app.controller('gruposController', ['$scope', '$http', function($scope, $http) {
 
         $scope.listaAdd.push(parseInt($scope.id));
         if(!$scope.listaAdd.length || $scope.listaAdd.length > 8){
-            window.location.href = "http://localhost:7000/#/errogrupos"; 
+            window.location.href = "https://whatslike-front-end.herokuapp.com/#/errogrupos"; 
         }else{
             $http.defaults.headers.common['Content-Type'] = 'application/json';
             $http.post("https://whatslike-back-end.herokuapp.com/grupos/existe",payload).then(function Sucess(data){
                 if(data){ 
-                    window.location.href = "http://localhost:7000/#/errogrupos";
+                    window.location.href = "https://whatslike-front-end.herokuapp.com/#/errogrupos";
                 }
             },function err(err){
                 if(err){
@@ -64,12 +64,12 @@ app.controller('gruposController', ['$scope', '$http', function($scope, $http) {
                             $http.post("https://whatslike-back-end.herokuapp.com/gruposMembros",payaux).then(function Sucess(data){
                                 if(data){
                                     $scope.buscaGrupos();
-                                    window.location.href = "http://localhost:7000/#/sucessocadastrogrupos";
+                                    window.location.href = "https://whatslike-front-end.herokuapp.com/#/sucessocadastrogrupos";
                                 }
                             })
                         }
                     },function err(){
-                        window.location.href = "http://localhost:7000/#/errogrupos";
+                        window.location.href = "https://whatslike-front-end.herokuapp.com/#/errogrupos";
                     })
                 }
             })
@@ -147,19 +147,19 @@ app.controller('gruposController', ['$scope', '$http', function($scope, $http) {
 
         switch(option){
             case 'add':
-                window.location.href = "http://localhost:7000/#/cadastrogrupos";
+                window.location.href = "https://whatslike-front-end.herokuapp.com/#/cadastrogrupos";
             break;
             case 'voltar':
-                window.location.href = "http://localhost:7000/#/home";
+                window.location.href = "https://whatslike-front-end.herokuapp.com/#/home";
             break;
             case 'voltarMsg':
-                window.location.href = "http://localhost:7000/#/grupos";
+                window.location.href = "https://whatslike-front-end.herokuapp.com/#/grupos";
             break;
         }
     }
 
     $scope.fechar = function(){
-        window.location.href = "http://localhost:7000/#/grupos";
+        window.location.href = "https://whatslike-front-end.herokuapp.com/#/grupos";
    }
 
    $scope.submit = function(option,id,nome,msgid){
@@ -174,13 +174,13 @@ app.controller('gruposController', ['$scope', '$http', function($scope, $http) {
                     if(data){
                             window.sessionStorage.setItem('idGrupo', id);
                             window.sessionStorage.setItem('nomeGrupo', nome);
-                            window.location.href = "http://localhost:7000/#/mensagensG";
+                            window.location.href = "https://whatslike-front-end.herokuapp.com/#/mensagensG";
                     }else{
-                        window.location.href = "http://localhost:7000/#/erromsgG";
+                        window.location.href = "https://whatslike-front-end.herokuapp.com/#/erromsgG";
                     }
                 },function Error(err) {
                     if(err){
-                        window.location.href = "http://localhost:7000/#/erromsgG";
+                        window.location.href = "https://whatslike-front-end.herokuapp.com/#/erromsgG";
                     }
                 });
             break;
@@ -209,7 +209,7 @@ app.controller('gruposController', ['$scope', '$http', function($scope, $http) {
                                 $http.post("https://whatslike-back-end.herokuapp.com/mensagemgrupos",$scope.payloadMsgGrupo).then(function Sucess(data){
                                     if(data){
                                         
-                                        window.location.href = "http://localhost:7000/#/sucessomsgG";
+                                        window.location.href = "https://whatslike-front-end.herokuapp.com/#/sucessomsgG";
                                     }
                                 })    
                                 
@@ -218,7 +218,7 @@ app.controller('gruposController', ['$scope', '$http', function($scope, $http) {
                     }    
                     },function Error(err) {
                         if(err){
-                            window.location.href = "http://localhost:7000/#/erromsgG";
+                            window.location.href = "https://whatslike-front-end.herokuapp.com/#/erromsgG";
                         }
                     });
             break;

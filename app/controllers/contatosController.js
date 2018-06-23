@@ -26,13 +26,13 @@ app.controller('contatosController', ['$scope', '$http', function($scope, $http)
                 payloadContato.contato = contato;
                 debugger
                 if(payload.nome === $scope.nome && payload.ip === $scope.ip){
-                    window.location.href = "http://localhost:7000/#/errocontatos";
+                    window.location.href = "https://whatslike-front-end.herokuapp.com/#/errocontatos";
                 }else{
                     debugger
                     $http.post("https://whatslike-back-end.herokuapp.com/contatos/existe", payloadContato).then(function Sucess(data){
                         debugger
                         if(data){
-                            window.location.href = "http://localhost:7000/#/errocontatos"; 
+                            window.location.href = "https://whatslike-front-end.herokuapp.com/#/errocontatos"; 
                         }
                     },function Error(err) {
                         if(err){
@@ -40,11 +40,11 @@ app.controller('contatosController', ['$scope', '$http', function($scope, $http)
                             $http.post("https://whatslike-back-end.herokuapp.com/contatos", payloadContato).then(function Sucess(data){
                             debugger
                             if(data){
-                                    window.location.href = "http://localhost:7000/#/contatos";   
+                                    window.location.href = "https://whatslike-front-end.herokuapp.com/#/contatos";   
                                 }
                             },function Error(err) {
                                 if(err){
-                                    window.location.href = "http://localhost:7000/#/erroContatos";
+                                    window.location.href = "https://whatslike-front-end.herokuapp.com/#/erroContatos";
                                 }
                             });       
                         }
@@ -53,7 +53,7 @@ app.controller('contatosController', ['$scope', '$http', function($scope, $http)
             }
         },function err(err){
             if(err){
-                window.location.href = "http://localhost:7000/#/errocontatos";
+                window.location.href = "https://whatslike-front-end.herokuapp.com/#/errocontatos";
             }
         });
     }
@@ -91,19 +91,19 @@ app.controller('contatosController', ['$scope', '$http', function($scope, $http)
 
         switch(option){
             case 'add':
-                window.location.href = "http://localhost:7000/#/cadastrocontatos";
+                window.location.href = "https://whatslike-front-end.herokuapp.com/#/cadastrocontatos";
             break;
             case 'voltar':
-                window.location.href = "http://localhost:7000/#/home";
+                window.location.href = "https://whatslike-front-end.herokuapp.com/#/home";
             break;
             case 'voltarMsg':
-                window.location.href = "http://localhost:7000/#/contatos";
+                window.location.href = "https://whatslike-front-end.herokuapp.com/#/contatos";
             break;
         }
     }
 
     $scope.fechar = function(){
-        window.location.href = "http://localhost:7000/#/contatos";
+        window.location.href = "https://whatslike-front-end.herokuapp.com/#/contatos";
    }
 
    $scope.submit = function(option,id,nome,msgid){
@@ -120,14 +120,14 @@ app.controller('contatosController', ['$scope', '$http', function($scope, $http)
                             }
                             window.sessionStorage.setItem('idContato', id);
                             window.sessionStorage.setItem('nomeContato', nome);
-                            window.location.href = "http://localhost:7000/#/mensagens";
+                            window.location.href = "https://whatslike-front-end.herokuapp.com/#/mensagens";
                         }else{
-                            window.location.href = "http://localhost:7000/#/erromsg";
+                            window.location.href = "https://whatslike-front-end.herokuapp.com/#/erromsg";
                         }
                     }
                 },function Error(err) {
                     if(err){
-                        window.location.href = "http://localhost:7000/#/erromsg";
+                        window.location.href = "https://whatslike-front-end.herokuapp.com/#/erromsg";
                     }
                 });
             break;
@@ -142,11 +142,11 @@ app.controller('contatosController', ['$scope', '$http', function($scope, $http)
                 $http.defaults.headers.common['Content-Type'] = 'application/json';
                 $http.post("https://whatslike-back-end.herokuapp.com/mensagens", payload).then(function Sucess(data){
                     if(data){
-                        window.location.href = "http://localhost:7000/#/sucessomsg";
+                        window.location.href = "https://whatslike-front-end.herokuapp.com/#/sucessomsg";
                     }
                 },function Error(err) {
                     if(err){
-                        window.location.href = "http://localhost:7000/#/erromsg";
+                        window.location.href = "https://whatslike-front-end.herokuapp.com/#/erromsg";
                     }
                 });
             break;

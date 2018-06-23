@@ -13,11 +13,11 @@ app.controller('loginController', ['$scope', '$http', function($scope, $http) {
                 window.sessionStorage.setItem('nome', data.data.nome);
                 window.sessionStorage.setItem('ip', data.data.ip); 
                 window.sessionStorage.setItem('id', data.data.id);
-                window.location.href = "http://localhost:7000/#/home";
+                window.location.href = "https://whatslike-front-end.herokuapp.com/#/home";
             }
         },function Error(err) {
             if(err){
-                window.location.href = "http://localhost:7000/#/errologin";
+                window.location.href = "https://whatslike-front-end.herokuapp.com/#/errologin";
             }
         });
    }
@@ -34,17 +34,17 @@ app.controller('loginController', ['$scope', '$http', function($scope, $http) {
         $http.defaults.headers.common['Content-Type'] = 'application/json';
         $http.post("https://whatslike-back-end.herokuapp.com/usuarios", payload).then(function Sucess(data){
             if(data){
-                window.location.href = "http://localhost:7000/#/sucessocadastro";
+                window.location.href = "https://whatslike-front-end.herokuapp.com/#/sucessocadastro";
             }
         },function Error(err) {
             if(err){
-                window.location.href = "http://localhost:7000/#/errocadastro";
+                window.location.href = "https://whatslike-front-end.herokuapp.com/#/errocadastro";
             }
         });
    }
 
    $scope.fechar = function(){
-        window.location.href = "http://localhost:7000/#/";
+        window.location.href = "https://whatslike-front-end.herokuapp.com/#/";
    }
    
 }]);

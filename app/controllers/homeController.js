@@ -6,10 +6,10 @@ app.controller('homeController', ['$scope', '$http', function($scope, $http) {
 
         switch(option){
             case 'contatos':
-                window.location.href = "http://localhost:7000/#/contatos";
+                window.location.href = "https://whatslike-front-end.herokuapp.com/#/contatos";
             break;
             case 'grupos':
-                window.location.href = "http://localhost:7000/#/grupos";
+                window.location.href = "https://whatslike-front-end.herokuapp.com/#/grupos";
             break;
             case 'sair':
                 let payload = {};
@@ -18,11 +18,11 @@ app.controller('homeController', ['$scope', '$http', function($scope, $http) {
                 $http.defaults.headers.common['Content-Type'] = 'application/json';
                 $http.post("https://whatslike-back-end.herokuapp.com/usuarios/logout", payload).then(function Sucess(data){
                     if(data){
-                        window.location.href = "http://localhost:7000/#/login";
+                        window.location.href = "https://whatslike-front-end.herokuapp.com/#/login";
                     }
                 },function Error(err) {
                     if(err){
-                        window.location.href = "http://localhost:7000/#/login";
+                        window.location.href = "https://whatslike-front-end.herokuapp.com/#/login";
                     }
                 });
             break;
