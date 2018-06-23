@@ -1,5 +1,5 @@
 {
-  "name": "hscApp",
+  "name": "hscapp",
   "private": true,
   "scripts": {
     "serve": "grunt serve"
@@ -62,5 +62,18 @@
     "grunt-cli": "^1.2.0",
     "gzippo": "^0.2.0",
     "ng-infinite-scroll": "^1.3.0"
-  }
+  },
+  "version": "1.0.0",
+  "main": "Gruntfile.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/csilvei/whatslike-Front-End.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/csilvei/whatslike-Front-End/issues"
+  },
+  "homepage": "https://github.com/csilvei/whatslike-Front-End#readme",
+  "description": ""
 }

@@ -1,47 +1,50 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Whatslike Web</title>
-        <link rel="shortcut icon" type="image/x-icon" href="https://i0.wp.com/www.slzturismo.com.br/wp-content/uploads/2017/11/telefone.png">
-        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
-        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-resource.js"></script>
-        <!-- CSS  -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-    </head>
-    <img src="https://i0.wp.com/www.slzturismo.com.br/wp-content/uploads/2017/11/telefone.png" style="margin-left:45%;width: 10%;margin-top: 5%">
-    <body ng-app="App" style="background-image: url(http://backgroundcheckall.com/wp-content/uploads/2017/12/background-whatsapp-7.jpg)">
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Whatslike</title>
+  <link rel="shortcut icon" type="image/x-icon" href="whatslike.png">
+  <!-- CSS  -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+</head>
+<body style="background-image: url(http://backgroundcheckall.com/wp-content/uploads/2017/12/background-whatsapp-7.jpg)">
+  <img src="whatslike.png" style="width: 20%; margin-left: 40%; margin-top: 10%" >
+  <form style="margin-left: 40%; margin-top: 5%" method="POST">
+      <div class="form-group">
+          <label for="exampleInputEmail1" style="color: white">Nome</label>
+          <input type="text" class="form-control" style="width:30%!important" name="nome" required aria-describedby="nomeHelp" placeholder="digite um nome" maxlength="8">
+      </div>
+      <div class="form-group">
+          <label for="exampleInputPassword1" style="color: white">IP</label>
+          <input type="text" class="form-control" name="ip" style="width:30%!important" onkeydown="javascript: fMasc( this, mIP );" required placeholder="digite o ip" maxlength="15">
+      </div>
+      <button type="submit" class="btn btn-primary" style="margin-left: 10%">Entrar</button>
+      <h3><a href="/cadastrarusuario" style="margin-left: 2%; color: white">Quero me Cadastrar</a></h3>
+  </form>
 
-        <div ng-view></div>
 
-        <!--  Scripts-->
-        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-        <script type="text/javascript">
-
-            function fMasc(objeto,mascara) {
-                obj=objeto
-                masc=mascara
-                setTimeout("fMascEx()",1)
-            }
-            function fMascEx() {
-                obj.value=masc(obj.value)
-            }    
-            function mIP(ip){
-                    ip=ip.replace(/\D/g,"")
-                    ip=ip.replace(/^(\d{3})(\d)/,"$1.$2")
-                    ip=ip.replace(/\.(\d{3})(\d)/,".$1.$2")
-                    ip=ip.replace(/\.(\d{3})(\d)/,".$1.$2")
-                    return ip
-            }   
-        </script>
-        <script type="text/javascript" src="app.js"></script>
-        <script type="text/javascript" src="./controllers/loginController.js"></script>
-        <script type="text/javascript" src="./controllers/homeController.js"></script>
-        <script type="text/javascript" src="./controllers/contatosController.js"></script>
-        <script type="text/javascript" src="./controllers/gruposController.js"></script>
-    </body>
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+  <script type="text/javascript">
+    function fMasc(objeto,mascara) {
+      obj=objeto
+      masc=mascara
+      setTimeout("fMascEx()",1)
+    }
+    function fMascEx() {
+      obj.value=masc(obj.value)
+    }    
+    function mIP(ip){
+          ip=ip.replace(/\D/g,"")
+          ip=ip.replace(/^(\d{3})(\d)/,"$1.$2")
+          ip=ip.replace(/\.(\d{3})(\d)/,".$1.$2")
+          ip=ip.replace(/\.(\d{3})(\d)/,".$1.$2")
+          return ip
+    }   
+</script>
+  </body>
 </html>
