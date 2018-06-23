@@ -42,7 +42,7 @@ app.controller('gruposController', ['$scope', '$http', function($scope, $http) {
             window.location.href = "http://localhost:7000/#/errogrupos"; 
         }else{
             $http.defaults.headers.common['Content-Type'] = 'application/json';
-            $http.post("http://localhost:8080/grupos/existe",payload).then(function Sucess(data){
+            $http.post("https://whatslike-back-end.herokuapp.com/grupos/existe",payload).then(function Sucess(data){
                 if(data){ 
                     window.location.href = "http://localhost:7000/#/errogrupos";
                 }
@@ -51,7 +51,7 @@ app.controller('gruposController', ['$scope', '$http', function($scope, $http) {
                     let paygrupo = {};
                     paygrupo.nome = payload;
                     $http.defaults.headers.common['Content-Type'] = 'application/json';
-                    $http.post("http://localhost:8080/grupos",paygrupo).then(function Sucess(data){
+                    $http.post("https://whatslike-back-end.herokuapp.com/grupos",paygrupo).then(function Sucess(data){
                         if(data){ 
 
                             let aux = data.data;
@@ -61,7 +61,7 @@ app.controller('gruposController', ['$scope', '$http', function($scope, $http) {
                                 payaux.push($scope.listaAdd[i]);
                             }
                             $http.defaults.headers.common['Content-Type'] = 'application/json';
-                            $http.post("http://localhost:8080/gruposMembros",payaux).then(function Sucess(data){
+                            $http.post("https://whatslike-back-end.herokuapp.com/gruposMembros",payaux).then(function Sucess(data){
                                 if(data){
                                     $scope.buscaGrupos();
                                     window.location.href = "http://localhost:7000/#/sucessocadastrogrupos";
@@ -78,7 +78,7 @@ app.controller('gruposController', ['$scope', '$http', function($scope, $http) {
 
     $scope.buscaContatos = function(){
         $http.defaults.headers.common['Content-Type'] = 'application/json';
-        $http.get("http://localhost:8080/contatos/all", $scope.id).then(function Sucess(data){
+        $http.get("https://whatslike-back-end.herokuapp.com/contatos/all", $scope.id).then(function Sucess(data){
             if(data){
                 let aux = data.data;
                 let payload = "";
@@ -89,7 +89,7 @@ app.controller('gruposController', ['$scope', '$http', function($scope, $http) {
                         payload = aux[i].usuario;
                     }
                     $http.defaults.headers.common['Content-Type'] = 'application/json';
-                    $http.get(`http://localhost:8080/usuarios/${payload}`).then(function Sucess(data){
+                    $http.get(`https://whatslike-back-end.herokuapp.com/usuarios/${payload}`).then(function Sucess(data){
                         if(data){
                             $scope.contatos.push(data.data);
                         }
@@ -105,7 +105,7 @@ app.controller('gruposController', ['$scope', '$http', function($scope, $http) {
     $scope.gruposAux = [];
     $scope.buscaGrupos = function(){
         $http.defaults.headers.common['Content-Type'] = 'application/json';
-        $http.get("http://localhost:8080/gruposMembros/all").then(function Sucess(data){
+        $http.get("https://whatslike-back-end.herokuapp.com/gruposMembros/all").then(function Sucess(data){
             if(data){
                 let aux = data.data;
                 for (var i in aux){
@@ -114,7 +114,7 @@ app.controller('gruposController', ['$scope', '$http', function($scope, $http) {
                     }
                 }
                 $http.defaults.headers.common['Content-Type'] = 'application/json';
-                $http.get("http://localhost:8080/grupos/all", $scope.id).then(function Sucess(data){
+                $http.get("https://whatslike-back-end.herokuapp.com/grupos/all", $scope.id).then(function Sucess(data){
 
                     if(data){
                         let aux = data.data;
@@ -170,7 +170,7 @@ app.controller('gruposController', ['$scope', '$http', function($scope, $http) {
                 payload.push(id);
                 $scope.id = parseInt($scope.id);
                 payload.push($scope.id);
-                $http.post(`http://localhost:8080/mensagens/grupos`,payload).then(function Sucess(data){
+                $http.post(`https://whatslike-back-end.herokuapp.com/mensagens/grupos`,payload).then(function Sucess(data){
                     if(data){
                             window.sessionStorage.setItem('idGrupo', id);
                             window.sessionStorage.setItem('nomeGrupo', nome);
@@ -193,12 +193,12 @@ app.controller('gruposController', ['$scope', '$http', function($scope, $http) {
                 payloads.grupo = true;
                 payloads.remetenteNome = $scope.nome;
                 $http.defaults.headers.common['Content-Type'] = 'application/json';
-                $http.post("http://localhost:8080/mensagens", payloads).then(function Sucess(data){
+                $http.post("https://whatslike-back-end.herokuapp.com/mensagens", payloads).then(function Sucess(data){
                     if(data){
                         $scope.payloadMsgGrupo = [];
                         $scope.payloadMsgGrupo.push(id);
                         $scope.payloadMsgGrupo.push(data.data.id);
-                        $http.get("http://localhost:8080/gruposMembros/all").then(function Sucess(data){
+                        $http.get("https://whatslike-back-end.herokuapp.com/gruposMembros/all").then(function Sucess(data){
                             if(data){
                                 let aux = data.data;
                                 for (var i in aux){
@@ -206,7 +206,7 @@ app.controller('gruposController', ['$scope', '$http', function($scope, $http) {
                                         $scope.payloadMsgGrupo.push(aux[i].membro);
                                     }
                                 }
-                                $http.post("http://localhost:8080/mensagemgrupos",$scope.payloadMsgGrupo).then(function Sucess(data){
+                                $http.post("https://whatslike-back-end.herokuapp.com/mensagemgrupos",$scope.payloadMsgGrupo).then(function Sucess(data){
                                     if(data){
                                         
                                         window.location.href = "http://localhost:7000/#/sucessomsgG";
@@ -229,7 +229,7 @@ app.controller('gruposController', ['$scope', '$http', function($scope, $http) {
     $scope.msg = function(){
         $scope.idc = parseInt($scope.idc);
         $http.defaults.headers.common['Content-Type'] = 'application/json';
-        $http.get(`http://localhost:8080/mensagens/grupos/${$scope.idc}`).then(function Sucess(data){
+        $http.get(`https://whatslike-back-end.herokuapp.com/mensagens/grupos/${$scope.idc}`).then(function Sucess(data){
             if(data){
                 if(data.data){
                     for (var i in data.data){

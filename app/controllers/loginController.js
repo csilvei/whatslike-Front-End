@@ -7,7 +7,7 @@ app.controller('loginController', ['$scope', '$http', function($scope, $http) {
         payload.nome = document.getElementById('nome').value;    
         payload.ip = document.getElementById('ip').value;
         $http.defaults.headers.common['Content-Type'] = 'application/json';
-        $http.post(`http://localhost:8080/usuarios/buscar`,payload).then(function Sucess(data){
+        $http.post(`https://whatslike-back-end.herokuapp.com/usuarios/buscar`,payload).then(function Sucess(data){
             if(data){
                 
                 window.sessionStorage.setItem('nome', data.data.nome);
@@ -32,7 +32,7 @@ app.controller('loginController', ['$scope', '$http', function($scope, $http) {
         payload.nome = document.getElementById('nome').value;    
         payload.ip = document.getElementById('ip').value;
         $http.defaults.headers.common['Content-Type'] = 'application/json';
-        $http.post("http://localhost:8080/usuarios", payload).then(function Sucess(data){
+        $http.post("https://whatslike-back-end.herokuapp.com/usuarios", payload).then(function Sucess(data){
             if(data){
                 window.location.href = "http://localhost:7000/#/sucessocadastro";
             }

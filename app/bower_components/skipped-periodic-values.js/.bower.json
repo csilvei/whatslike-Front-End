@@ -1,0 +1,39 @@
+{
+  "name": "skipped-periodic-values.js",
+  "version": "1.0.1",
+  "homepage": "https://github.com/jmeas/skipped-periodic-values.js",
+  "authors": [
+    "Jmeas <jellyes2@gmail.com>"
+  ],
+  "description": "Given a point and a distance, determine how many periodic values were skipped.",
+  "main": "dist/skipped-periodic-values.js",
+  "keywords": [
+    "mathematics",
+    "math",
+    "period",
+    "periodic",
+    "skipped",
+    "solution",
+    "function"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "nearest-periodic-value.js": "~1.0.0"
+  },
+  "_release": "1.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.0.1",
+    "commit": "a7f4e135626174831127c7c495ac3d45d77f6344"
+  },
+  "_source": "https://github.com/jmeas/skipped-periodic-values.js.git",
+  "_target": "^1.0.0",
+  "_originalSource": "skipped-periodic-values.js"
+}

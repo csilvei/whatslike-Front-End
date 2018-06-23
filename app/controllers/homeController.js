@@ -16,7 +16,7 @@ app.controller('homeController', ['$scope', '$http', function($scope, $http) {
                 payload.nome = $scope.nome = window.sessionStorage.getItem('nome');    
                 payload.ip = $scope.nome = window.sessionStorage.getItem('ip');
                 $http.defaults.headers.common['Content-Type'] = 'application/json';
-                $http.post("http://localhost:8080/usuarios/logout", payload).then(function Sucess(data){
+                $http.post("https://whatslike-back-end.herokuapp.com/usuarios/logout", payload).then(function Sucess(data){
                     if(data){
                         window.location.href = "http://localhost:7000/#/login";
                     }

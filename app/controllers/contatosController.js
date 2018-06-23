@@ -17,7 +17,7 @@ app.controller('contatosController', ['$scope', '$http', function($scope, $http)
         //payload.usuario = $scope.id;
 
         $http.defaults.headers.common['Content-Type'] = 'application/json';
-        $http.post("http://localhost:8080/usuarios/buscarCont",payload).then(function Sucess(data){
+        $http.post("https://whatslike-back-end.herokuapp.com/usuarios/buscarCont",payload).then(function Sucess(data){
             debugger
             if(data){ 
                 
@@ -29,7 +29,7 @@ app.controller('contatosController', ['$scope', '$http', function($scope, $http)
                     window.location.href = "http://localhost:7000/#/errocontatos";
                 }else{
                     debugger
-                    $http.post("http://localhost:8080/contatos/existe", payloadContato).then(function Sucess(data){
+                    $http.post("https://whatslike-back-end.herokuapp.com/contatos/existe", payloadContato).then(function Sucess(data){
                         debugger
                         if(data){
                             window.location.href = "http://localhost:7000/#/errocontatos"; 
@@ -37,7 +37,7 @@ app.controller('contatosController', ['$scope', '$http', function($scope, $http)
                     },function Error(err) {
                         if(err){
                             debugger
-                            $http.post("http://localhost:8080/contatos", payloadContato).then(function Sucess(data){
+                            $http.post("https://whatslike-back-end.herokuapp.com/contatos", payloadContato).then(function Sucess(data){
                             debugger
                             if(data){
                                     window.location.href = "http://localhost:7000/#/contatos";   
@@ -60,7 +60,7 @@ app.controller('contatosController', ['$scope', '$http', function($scope, $http)
 
     $scope.buscaContatos = function(){
         $http.defaults.headers.common['Content-Type'] = 'application/json';
-        $http.get("http://localhost:8080/contatos/all", $scope.id).then(function Sucess(data){
+        $http.get("https://whatslike-back-end.herokuapp.com/contatos/all", $scope.id).then(function Sucess(data){
             if(data){
                 let aux = data.data;
                 let payload = "";
@@ -72,7 +72,7 @@ app.controller('contatosController', ['$scope', '$http', function($scope, $http)
                         payload = aux[i].usuario;
                     }
                     $http.defaults.headers.common['Content-Type'] = 'application/json';
-                    $http.get(`http://localhost:8080/usuarios/${payload}`).then(function Sucess(data){
+                    $http.get(`https://whatslike-back-end.herokuapp.com/usuarios/${payload}`).then(function Sucess(data){
                         if(data){
                             $scope.contatos.push(data.data);
                             debugger
@@ -111,7 +111,7 @@ app.controller('contatosController', ['$scope', '$http', function($scope, $http)
         switch (option){
             case 'msgview':
                 $http.defaults.headers.common['Content-Type'] = 'application/json';
-                $http.get(`http://localhost:8080/mensagens/${id}&${$scope.id}`).then(function Sucess(data){
+                $http.get(`https://whatslike-back-end.herokuapp.com/mensagens/${id}&${$scope.id}`).then(function Sucess(data){
                     if(data){
                         if(data.data){
                             let arrayMsg = [];
@@ -140,7 +140,7 @@ app.controller('contatosController', ['$scope', '$http', function($scope, $http)
                 payload.grupo = false;
                 payload.remetenteNome = $scope.nome;
                 $http.defaults.headers.common['Content-Type'] = 'application/json';
-                $http.post("http://localhost:8080/mensagens", payload).then(function Sucess(data){
+                $http.post("https://whatslike-back-end.herokuapp.com/mensagens", payload).then(function Sucess(data){
                     if(data){
                         window.location.href = "http://localhost:7000/#/sucessomsg";
                     }
@@ -157,7 +157,7 @@ app.controller('contatosController', ['$scope', '$http', function($scope, $http)
     $scope.msg = function(){
 
         $http.defaults.headers.common['Content-Type'] = 'application/json';
-        $http.get(`http://localhost:8080/mensagens/${$scope.idc}&${$scope.id}`).then(function Sucess(data){
+        $http.get(`https://whatslike-back-end.herokuapp.com/mensagens/${$scope.idc}&${$scope.id}`).then(function Sucess(data){
             debugger
             if(data){
                 if(data.data){

@@ -1,0 +1,36 @@
+{
+  "name": "nearest-periodic-value.js",
+  "version": "1.0.1",
+  "homepage": "https://github.com/jmeas/nearest-periodic-value.js",
+  "authors": [
+    "Jmeas <jellyes2@gmail.com>"
+  ],
+  "description": "Find the nearest value of a discrete periodic function, given a point.",
+  "main": "dist/nearest-periodic-value.js",
+  "keywords": [
+    "mathematics",
+    "math",
+    "period",
+    "periodic",
+    "nearest",
+    "solution",
+    "function"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "1.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.0.1",
+    "commit": "f209f6d215c69b3568db1f5d33d684391903444a"
+  },
+  "_source": "https://github.com/jmeas/nearest-periodic-value.js.git",
+  "_target": "~1.0.0",
+  "_originalSource": "nearest-periodic-value.js"
+}
